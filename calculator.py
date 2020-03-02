@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox
 
 def set_num(n):
 	value = num.get()
@@ -33,12 +34,12 @@ mainframe.configure(relief='groove')
 
 s = ttk.Style()
 
-print(s.element_options('Frame.border'))
-
 num = StringVar()
 num_label = ttk.Label(mainframe, width=10, textvariable=num)
 num_label.grid(column=0, row=0, sticky=(W, E, N, S), columnspan=4)
 num_label.configure(font='helvetica 24', foreground='#64545A', background='#FFFFFF')
+
+print(s.element_options('num_label'))
 
 ttk.Button(mainframe, text="1", command=lambda: set_num('1')).grid(column=0, row=1, sticky=W)
 ttk.Button(mainframe, text="2", command=lambda: set_num('2')).grid(column=1, row=1, sticky=W)
@@ -65,6 +66,7 @@ ttk.Button(mainframe, text="default", command=lambda: s.theme_use('default')).gr
 ttk.Button(mainframe, text="classic", command=lambda: s.theme_use('classic')).grid(column=4, row=5)
 ttk.Button(mainframe, text="vista", command=lambda: s.theme_use('vista')).grid(column=4, row=6)
 ttk.Button(mainframe, text="xpnative", command=lambda: s.theme_use('xpnative')).grid(column=4, row=7)
+ttk.Button(mainframe, text="Click here", command=lambda: messagebox.showinfo(message='Have a good day')).grid(column=0, row=7)
 
 root.bind('<Return>', set_res)
 
