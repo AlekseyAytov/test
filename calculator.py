@@ -36,13 +36,13 @@ s = ttk.Style()
 # print(s.theme_use())
 # print(s.layout('TButton'))
 # print(s.element_options('Button.label'))
-print(s.layout('Tk'))
+
 print(s.element_options('Frame.border'))
 
 num = StringVar()
 num_label = ttk.Label(mainframe, width=10, textvariable=num)
 num_label.grid(column=0, row=0, sticky=(W, E, N, S), columnspan=4)
-num_label.configure(font='helvetica 24', foreground='red', background='#FFFFFF')
+num_label.configure(font='helvetica 24', foreground='#64545A', background='#FFFFFF')
 
 ttk.Button(mainframe, text="1", command=lambda: set_num('1')).grid(column=0, row=1, sticky=W)
 ttk.Button(mainframe, text="2", command=lambda: set_num('2')).grid(column=1, row=1, sticky=W)
@@ -87,7 +87,5 @@ mainframe.rowconfigure(5, weight=1)
 
 for child in mainframe.winfo_children(): 
 	child.grid_configure(padx=5, pady=5)
-	# child.configure(background='#FFFFFF')
-	# dfsffd
 
 root.mainloop()
