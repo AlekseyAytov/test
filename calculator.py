@@ -72,18 +72,21 @@ ttk.Button(mainframe, text="xpnative", command=lambda: s.theme_use('xpnative')).
 
 root.bind('<Return>', set_res)
 
-root.columnconfigure(0, weight=1)
-root.rowconfigure(0, weight=1)
-mainframe.columnconfigure(0, weight=1)
-mainframe.columnconfigure(1, weight=1)
-mainframe.columnconfigure(2, weight=1)
-mainframe.columnconfigure(3, weight=1)
-mainframe.rowconfigure(0, weight=1)
-mainframe.rowconfigure(1, weight=1)
-mainframe.rowconfigure(2, weight=1)
-mainframe.rowconfigure(3, weight=1)
-mainframe.rowconfigure(4, weight=1)
-mainframe.rowconfigure(5, weight=1)
+# root.columnconfigure(0, weight=1)
+# root.rowconfigure(0, weight=1)
+# mainframe.columnconfigure(0, weight=1, size= 80)
+# mainframe.columnconfigure(1, weight=1, minsize= 80)
+# mainframe.columnconfigure(2, weight=1, minsize= 80)
+# mainframe.columnconfigure(3, weight=1, minsize= 80)
+# mainframe.rowconfigure(0, weight=1, minsize= 50)
+# mainframe.rowconfigure(1, weight=1, minsize= 35)
+# mainframe.rowconfigure(2, weight=1, minsize= 35)
+# mainframe.rowconfigure(3, weight=1, minsize= 35)
+# mainframe.rowconfigure(4, weight=1, minsize= 35)
+# mainframe.rowconfigure(5, weight=1, minsize= 35)
+
+# блокировка изменений размеров окна
+root.resizable(FALSE,FALSE) 
 
 for child in mainframe.winfo_children(): 
 	child.grid_configure(padx=5, pady=5)
