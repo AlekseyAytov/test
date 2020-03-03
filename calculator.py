@@ -1,5 +1,6 @@
 from tkinter import *
 from tkinter import ttk
+from tkinter import messagebox
 
 def set_num(n):
 	value = num.get()
@@ -27,22 +28,20 @@ def reset():
 root = Tk()
 root.title("Calculator")
 
-mainframe = ttk.Frame(root, padding="5")
+mainframe = ttk.Frame(root, padding="5", relief='groove')
 mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
-mainframe.configure(relief='groove')
 
 s = ttk.Style()
-# print(s.theme_names())
-# print(s.theme_use())
-# print(s.layout('TButton'))
-# print(s.element_options('Button.label'))
+print(s.theme_names())
+print(s.theme_use())
+print(s.layout('TButton'))
+print(s.element_options('TButton.label'))
 
-print(s.element_options('Frame.border'))
+s.configure('TButton', font='helvetica 12')
 
 num = StringVar()
-num_label = ttk.Label(mainframe, width=10, textvariable=num)
+num_label = ttk.Label(mainframe, width=10, textvariable=num, font='helvetica 24', foreground='#64545A', background='#FFFFFF')
 num_label.grid(column=0, row=0, sticky=(W, E, N, S), columnspan=4)
-num_label.configure(font='helvetica 24', foreground='#64545A', background='#FFFFFF')
 
 ttk.Button(mainframe, text="1", command=lambda: set_num('1')).grid(column=0, row=1, sticky=W)
 ttk.Button(mainframe, text="2", command=lambda: set_num('2')).grid(column=1, row=1, sticky=W)
@@ -69,6 +68,7 @@ ttk.Button(mainframe, text="default", command=lambda: s.theme_use('default')).gr
 ttk.Button(mainframe, text="classic", command=lambda: s.theme_use('classic')).grid(column=4, row=5)
 ttk.Button(mainframe, text="vista", command=lambda: s.theme_use('vista')).grid(column=4, row=6)
 ttk.Button(mainframe, text="xpnative", command=lambda: s.theme_use('xpnative')).grid(column=4, row=7)
+ttk.Button(mainframe, text="Press", command=lambda: messagebox.showinfo(message='Have a nice day')).grid(column=1, row=7)
 
 root.bind('<Return>', set_res)
 
@@ -92,10 +92,3 @@ for child in mainframe.winfo_children():
 	child.grid_configure(padx=5, pady=5)
 
 root.mainloop()
-
-# la-la-la
-# 1
-# 1
-# 1
-# 1
-# 1
