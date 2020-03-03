@@ -32,6 +32,7 @@ mainframe = ttk.Frame(root, padding="5", relief='groove')
 mainframe.grid(column=0, row=0, sticky=(N, W, E, S))
 
 s = ttk.Style()
+
 print(s.theme_names())
 print(s.theme_use())
 print(s.layout('TButton'))
@@ -42,6 +43,8 @@ s.configure('TButton', font='helvetica 12')
 num = StringVar()
 num_label = ttk.Label(mainframe, width=10, textvariable=num, font='helvetica 24', foreground='#64545A', background='#FFFFFF')
 num_label.grid(column=0, row=0, sticky=(W, E, N, S), columnspan=4)
+
+print(s.element_options('num_label'))
 
 ttk.Button(mainframe, text="1", command=lambda: set_num('1')).grid(column=0, row=1, sticky=W)
 ttk.Button(mainframe, text="2", command=lambda: set_num('2')).grid(column=1, row=1, sticky=W)
@@ -68,22 +71,10 @@ ttk.Button(mainframe, text="default", command=lambda: s.theme_use('default')).gr
 ttk.Button(mainframe, text="classic", command=lambda: s.theme_use('classic')).grid(column=4, row=5)
 ttk.Button(mainframe, text="vista", command=lambda: s.theme_use('vista')).grid(column=4, row=6)
 ttk.Button(mainframe, text="xpnative", command=lambda: s.theme_use('xpnative')).grid(column=4, row=7)
-ttk.Button(mainframe, text="Press", command=lambda: messagebox.showinfo(message='Have a nice day')).grid(column=1, row=7)
+
+ttk.Button(mainframe, text="Click here", command=lambda: messagebox.showinfo(message='Have a good day')).grid(column=0, row=7)
 
 root.bind('<Return>', set_res)
-
-# root.columnconfigure(0, weight=1)
-# root.rowconfigure(0, weight=1)
-# mainframe.columnconfigure(0, weight=1, size= 80)
-# mainframe.columnconfigure(1, weight=1, minsize= 80)
-# mainframe.columnconfigure(2, weight=1, minsize= 80)
-# mainframe.columnconfigure(3, weight=1, minsize= 80)
-# mainframe.rowconfigure(0, weight=1, minsize= 50)
-# mainframe.rowconfigure(1, weight=1, minsize= 35)
-# mainframe.rowconfigure(2, weight=1, minsize= 35)
-# mainframe.rowconfigure(3, weight=1, minsize= 35)
-# mainframe.rowconfigure(4, weight=1, minsize= 35)
-# mainframe.rowconfigure(5, weight=1, minsize= 35)
 
 # блокировка изменений размеров окна
 root.resizable(FALSE,FALSE) 
